@@ -11,8 +11,7 @@ class SparseAE(nn.Module):
         # Starting point consisting of:
         # 1 input layer
         # 2 hidden layer
-        # Modification capacity in exchange of interpretability
-        
+        # Modification capacity in exchange of interpretability   
         self.encoder = nn.Sequential(
             nn.Linear(49, 32),
             nn.ReLU(),

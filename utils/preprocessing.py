@@ -34,7 +34,12 @@ def initial_transformation(main_dataframe: pd.DataFrame) -> pd.DataFrame:
     # Categorizing 'account_age'
     account_bins = [0, 30, 180, float('inf')]
     account_labels = ['new', 'established', 'long_term']
-    dataframe_copy['account_age_category'] = pd.cut(main_dataframe['account_age'], bins=account_bins, labels=account_labels, right=True)
+    dataframe_copy['account_age_category'] = pd.cut(
+        main_dataframe['account_age'], 
+        bins=account_bins, 
+        labels=account_labels, 
+        right=True
+    )
     
     # Converting data types
     dataframe_copy['product_category'] = dataframe_copy['product_category'].astype('category')

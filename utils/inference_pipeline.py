@@ -47,10 +47,10 @@ def pipeline(data):
   final_predictions = xgboost_model.predict(processed_dataframe)
   prediction_proba = xgboost_model.predict_proba(processed_dataframe)[:, 1]
   
-  return {
-    "fraud_probability": float(prediction_proba[0]),
+  return {  
     "mse_rate": float(processed_dataframe["MSE_rate"].iloc[0]),
     "anomaly_score": float(processed_dataframe["anomaly_score"].iloc[0]),
+    "fraud_probability": float(prediction_proba[0]),
     "forest_prediction": int(forest_label[0]),
     "final_prediction": int(final_predictions[0]),
   }
